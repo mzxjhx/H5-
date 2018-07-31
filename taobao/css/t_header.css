@@ -1,0 +1,159 @@
+﻿.header{
+		width:100%;
+		height:36px;
+
+	}
+	.header-top{
+
+		height:36px;
+		background:rgb(244,244,244);
+		font-size:12px;
+	}
+	.header-top .hmod{
+		width:1190px;
+		height:100%;
+		margin:0 auto;
+	}
+	/* 头部中间 */
+	.header-top .hmod .bd-l{
+		float:left;
+		list-style:none;
+		width:100px;
+		height:100%;
+	}
+	.header-top .hmod .bd-l .li-menu{
+		width: 100%;
+		position:relative;
+	}
+	.header-top .hmod .bd-l .li-menu .region-name{
+		height: 36px;
+		line-height: 36px;
+		text-align: center;
+		border: none;
+	}
+	.header-top .hmod .bd-l .li-menu:hover .menu-block{
+		display: block;
+	}
+	.header-top .hmod .bd-l .li-menu:hover .region-name{
+
+		background: #ffffff;
+/*		border-left: 1px solid #6c6c6c;
+		border-right: 1px solid #6c6c6c;	*/
+	}
+	.header-top .hmod .bd-l .li-menu .menu-block{
+		position:absolute;
+		top:36px;
+		left:0px;
+		height:200px;
+		z-index:5000;
+		display: none;
+	}
+	.header-top .hmod .bd-l .li-menu .ulf {
+		width:150%;
+		list-style:none;
+		background:#ffffff;
+		border: 1px solid #999;
+		border-top:none;
+		overflow:auto;
+		
+	}
+	.header-top .hmod .bd-l .li-menu .menu-block  li{
+		height:30px;
+		line-height:30px;
+		font-size:12px;
+		padding:0 0 0 10px;
+	}
+	.header-top .hmod .bd-l .li-menu .menu-block li:first-child{
+		margin-top:5px;
+	}
+	.header-top .hmod .bd-l .li-menu .menu-block li:last-child{
+		margin-bottom:5px;
+	}
+	.header-top .hmod .bd-l .li-menu .menu-block li:hover{
+		background:#ccffff;
+	}
+
+	/* 头部右边部分 */
+	.header-top .hmod .bd-r {
+
+	}
+	.header-top .hmod .bd-r .li-menu{
+		float:left;
+		height:36px;
+		line-height:36px;
+		text-align:center;
+		font-size:13px;
+		padding:0 5px 0 5px;
+		color:#6c6c6c;
+		
+		cursor:pointer;
+		position: relative;
+	}
+	.header-top .hmod .bd-r .li-menu:hover{
+		color: #ff0000;
+		background: #fff;
+		border-left:1px solid #eee ;
+		border-right:1px solid #eee ;
+		border-bottom: 1px solid #fff;
+	}
+	.header-top .hmod .bd-r .li-menu:hover span{
+		color: #ff0000;
+	}
+	.header-top .hmod .bd-r .li-menu:hover .site-nav-menu-list{
+		display: block;
+	}
+	.header-top .hmod .bd-r .li-menu .site-nav-menu-hd{
+		padding: 0 5px;
+	}
+	.header-top .hmod .bd-r .li-menu .site-nav-menu-hd .hd{
+		display: inline;
+		float: left;
+		margin: 0;
+	}
+
+	.header-top .title{
+		margin:0 5px 0 5px
+	}
+	.site-nav-arrow{
+		display: block;
+		float: left;
+		width: 12px;
+		height: 6px;
+		line-height: 6px;
+		overflow: hidden;
+		margin-top: 16px;
+	}
+	.header-top .hmod .bd-r .li-menu ul{
+		list-style: none;
+	}
+	.header-top .hmod .bd-r .li-menu .site-nav-menu-list{
+		display: none;
+		border: 1px solid #eee;
+		border-top: none;
+	}
+
+	.header-top .hmod .bd-r .nav-map{
+		width:600px;
+		height:300px;
+		position:absolute;
+		top:36px;
+		left:-506px;
+		background:#ffffff;
+		z-index:5000;
+		display:none;
+	}
+	.header-top .hmod .bd-r .map .nav-map div{
+		border-right:1px solid #ccc;
+	}
+	/* 头部中间 end*/
+	.tao-search{
+		width:100%;
+		height:121px;
+		background:#fff;
+	}
+	.tao-search .main{
+		width:1190px;
+		margin:0 auto;
+		height:36px;
+		padding:34px 0 0 0;
+	}

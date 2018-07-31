@@ -1,0 +1,39 @@
+		@font-face{
+			font-family:iconfont;
+			src:url(../fonts/font_403341_n8tj33yn5peng66r.eot);
+			src:url(../fonts/font_403341_n8tj33yn5peng66r.eot?#iefix) format('embedded-opentype'),
+			url(../fonts/font_403341_n8tj33yn5peng66r.woff) format('woff'),
+			url(../fonts/font_403341_n8tj33yn5peng66r.ttf) format('truetype'),
+			url(../fonts/font_403341_n8tj33yn5peng66r.svg#iconfont) format('svg')
+		}
+
+		.tb-ifont{
+			font-family: iconfont!important;
+			font-size: 14px;
+			font-style: normal;
+			display: inline-block;
+			text-decoration: none;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		@font-face {
+			font-family:global-iconfont;
+			src:url(../fonts/font_1404888168_2057645.eot);
+			src:url(../fonts/font_1404888168_2057645.eot?#iefix) format("embedded-opentype"),
+			url(../fonts/font_1404888168_2057645.woff) format("woff"),
+			url(../fonts/font_1404888168_2057645.ttf) format("truetype"),
+			url(../fonts/font_1404888168_2057645.svg#uxiconfont) format("svg")
+		}
+
+		.top-nav-icon {
+			font-family: global-iconfont;
+			font-size: 12px;
+			font-style: normal;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscaleFont type;
+			color: #9c9c9c;
+			
+			display: block;
+			margin-top: -4px;
+			margin-right: 20px;
+		}

@@ -1,0 +1,35 @@
+.hot{
+	color:#ff0000!important;
+}
+/*当子级都为浮动时，那么父级的高度就无法完全的包住整个子级。清除浮动后父元素有高度*/
+.clearfix:after {
+	content:'';
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.highlight{
+	color: #ff0000;
+}
+a{
+	cursor: pointer;
+}
+.pointer{
+	cursor:pointer;
+}
+.beCenter{
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}
+
+.fl{
+	float:left;
+	display:inline-block;	
+}
+.fr{
+	float:right;
+	list-style:none;
+}

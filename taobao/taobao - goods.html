@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width;initial-scale=1" />
+    <meta name="keywords" content="nav" />
+    <meta name="description" content="索引" />
+
+	<link rel="stylesheet" href="css/iconfont.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/t_header.css">
+	<link rel="stylesheet" href="css/good_index.css">
+	<title>新标签页</title>
+
+	<style type="text/css">
+		
+
+	</style>
+
+</head>
+<body>
+	<!-- https://item.taobao.com/item.htm?id=573345695565&ali_refid=a3_420432_1006:1124588812:N:%E7%AB%A5%E8%A3%85:af8228f40e5135fe235db5f736e8a055&ali_trackid=1_af8228f40e5135fe235db5f736e8a055&spm=a230r.1.14.1#detail -->
+	<div class="header">
+		<div class="header-top">
+			<div class="hmod">
+				<ul class="bd-l clearfix">
+					<!-- 地区选择菜单 -->
+					<li class="li-menu pointer">
+						<div class="region-name">
+							<span id="region-name">中国大陆</span><span></span>
+						</div>
+
+						<ul class="pointer menu-block ulf">
+							<li class="menu-items">中国大陆</li>
+							<li class="menu-items">中国香港</li>
+							<li class="menu-items">台湾</li>
+							<li class="menu-items">澳门</li>
+							<li class="menu-items">韩国</li>
+							<li class="menu-items">日本</li>
+							<li class="menu-items">新加坡</li>								
+						</ul>
+
+					</li>
+					
+				</ul>
+				<ul class="bd-r fr clearfix">
+					<li class="li-menu">我的淘宝</li>
+					<li class="li-menu">购物车</li>
+					<li class="li-menu">收藏夹</li>
+					<li class="li-menu">卖家中心</li>
+					<li class="li-menu map">
+						<div>网站导航</div>
+						<div class="nav-map">
+							<div></div>
+							<div></div>
+							<div></div>							
+							<div></div>
+						</div>
+					</li>
+				</ul>
+			</div>			
+		</div>
+	</div>
+	<section class="shop-region">
+		<div class="main clearfix">
+			<div class="search">
+				
+			</div>
+			<div class="shopinfo">
+			
+			</div>
+		</div>
+	</section>
+	<section class="goods-region">
+		<div class="top">
+			<div class="item-info">
+				<div class="img-gallery">
+					<div class="main-pic">
+						<a>
+							<img src="" />
+						</a>
+					</div>
+					<ul id="list" class="clearfix">
+						<li>
+							<img src="./images/c9b0190a91a87cdbe787a63b97aafda4.jpg" />
+						</li>					
+						<li>
+							<img src="./images/c9b0190a91a87cdbe787a63b97aafda4.jpg" />
+						</li>						
+					</ul>
+
+				</div>
+				<div class="social">
+				
+				</div>
+			</div>
+
+			<div class="info-r">
+				<h3>啦芙莱2018秋季新款童装男童风衣儿童外套韩版服装男孩上衣潮6715</h3>
+				
+				<div class="banner">						
+					<div class="price">
+						
+					</div>
+					<div class="disCount">
+						<span></span>
+						<div>
+						</div>
+					</div>
+				</div>
+				<dl class="property-color">
+					<dt>颜色分类</dt>
+					<dd>
+						<ul>
+							<li>
+								卡其色
+							</li>
+							<li>
+								黑色
+							</li>							
+						</ul>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javascript" src="js/top-ad.js" ></script>
+	<script type="text/javascript" src="js/topMsg.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/hasgoods.js"></script>
+    <script type="text/javascript">
+		window.onload = function(){
+
+		}
+
+		//导航菜单展开
+		function funnmenus(){
+			var menulis = document.getElementsByClassName('menu-li');
+			for(var i=0;i<menulis.length;i++){
+
+				(function(x){
+					menulis[x].onmouseover = function(){
+
+						var panel =this.getElementsByClassName('menu-panle')[0];
+						panel.style.display='block';
+						console.log(this.offsetHeight);
+						panel.style.top=0 - x * this.offsetHeight + 'px';
+						siblings(this).forEach(function(value,index,array){
+							if(value.nodeName == 'LI')
+							value.getElementsByClassName('menu-panle')[0].style.display='none';
+						});
+					};
+
+					menulis[x].onmouseleave = function(){
+						var panel =this.getElementsByClassName('menu-panle')[0];
+						panel.style.display='none';
+					};
+
+				})(i);
+
+			}
+		}
+
+		//生活研究所
+		function funLifeBox() {
+            var box = document.getElementsByClassName('boxCircle');
+            for(var i = 0;i<box.length;i++){
+
+                    box[i].onmouseover = function () {
+						this.style.borderColor='#cc7a1c';
+                    };
+
+                    box[i].onmouseleave=function () {
+
+                        this.style.borderColor='#248cfc';
+                    };
+            }
+        }
+
+        //右侧切换页
+        function funSelectBox() {
+
+            var lis = document.getElementsByClassName('item-down');
+
+            for(var i =0;i<lis.length;i++){
+				(function (x) {
+                    lis[x].onmouseover = function () {
+						this.style.borderColor='#ff0000';
+						//this.style.borderBottomColor='#ffffff';
+                    };
+
+                    lis[x].onmouseleave=function () {
+						this.style.borderColor='#ffffff';
+                    };
+                })(i)
+
+			}
+        }
+
+	</script>
+
+</body>
+</html>
+
+

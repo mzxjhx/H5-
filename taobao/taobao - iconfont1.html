@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width;initial-scale=1" />
+    <meta name="keywords" content="nav" />
+    <meta name="description" content="索引" />
+
+	<link rel="stylesheet" href="css/iconfont.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/t_header.css">
+	<link rel="stylesheet" href="css/index.css">
+	<title>新标签页</title>
+
+	<style type="text/css">
+		.site-nav{
+			width:1024px;
+			height:150px;
+		}
+
+	</style>
+
+</head>
+<body>
+	
+	<p>----------------------------------------</p>
+	<h3>tb-ifont</h3>
+	<i class="tb-ifont">&#58905;</i>
+	<i class="tb-ifont">&#58906;</i>
+	<i class="tb-ifont">&#58907;</i>
+	<i class="tb-ifont">&#58896;</i>
+	<i class="tb-ifont">&#58909;</i>
+	<i class="tb-ifont">&#58972;</i>
+	<i class="tb-ifont">&#58981;</i>
+	<i class="tb-ifont">&#58910;</i>
+	<i class="tb-ifont">&#58904;</i>
+	<i class="tb-ifont">&#58885;</i>
+	<i class="tb-ifont">&#58899;</i>
+	<i class="tb-ifont">&#58882;</i>
+	<i class="tb-ifont">&#58883;</i>
+	<i class="tb-ifont">&#58880;</i>
+	<i class="tb-ifont">&#58913;</i>
+	<i class="tb-ifont">&#58998;</i>
+	<i class="tb-ifont">&#58926;</i>
+	<i class="tb-ifont">&#58931;</i>
+	<i class="tb-ifont">&#58886;</i>
+	
+
+	<p>----------------------------------------</p>
+	<h3>global-iconfont</h3>
+	<div class="site-nav">
+	<i class="top-nav-icon">&#xe600;</i>
+	<i class="top-nav-icon">&#xe601;</i>
+	<i class="top-nav-icon">&#xe602;</i>
+	<i class="top-nav-icon">&#xe603;</i>
+	<i class="top-nav-icon">&#xe604;</i>
+		<i class="top-nav-icon">&#xe605;</i>
+		<i class="top-nav-icon">&#xe606;</i>		
+	</div>
+	<script type="text/javascript" src="js/top-ad.js" ></script>
+	<script type="text/javascript" src="js/topMsg.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/hasgoods.js"></script>
+    <script type="text/javascript">
+		window.onload = function(){
+           
+
+		}
+
+		//导航菜单展开
+		function funnmenus(){
+			var menulis = document.getElementsByClassName('menu-li');
+			for(var i=0;i<menulis.length;i++){
+
+				(function(x){
+					menulis[x].onmouseover = function(){
+
+						var panel =this.getElementsByClassName('menu-panle')[0];
+						panel.style.display='block';
+						console.log(this.offsetHeight);
+						panel.style.top=0 - x * this.offsetHeight + 'px';
+						siblings(this).forEach(function(value,index,array){
+							if(value.nodeName == 'LI')
+							value.getElementsByClassName('menu-panle')[0].style.display='none';
+						});
+					};
+
+					menulis[x].onmouseleave = function(){
+						var panel =this.getElementsByClassName('menu-panle')[0];
+						panel.style.display='none';
+					};
+
+				})(i);
+
+			}
+		}
+
+		//生活研究所
+		function funLifeBox() {
+            var box = document.getElementsByClassName('boxCircle');
+            for(var i = 0;i<box.length;i++){
+
+                    box[i].onmouseover = function () {
+						this.style.borderColor='#cc7a1c';
+                    };
+
+                    box[i].onmouseleave=function () {
+
+                        this.style.borderColor='#248cfc';
+                    };
+            }
+        }
+
+        //右侧切换页
+        function funSelectBox() {
+
+            var lis = document.getElementsByClassName('item-down');
+
+            for(var i =0;i<lis.length;i++){
+				(function (x) {
+                    lis[x].onmouseover = function () {
+						this.style.borderColor='#ff0000';
+						//this.style.borderBottomColor='#ffffff';
+                    };
+
+                    lis[x].onmouseleave=function () {
+						this.style.borderColor='#ffffff';
+                    };
+                })(i)
+
+			}
+        }
+
+	</script>
+
+</body>
+</html>
+
+

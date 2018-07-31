@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+ <html>
+ <head>
+ <title></title>
+ <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style>
+ div.container {
+	position: absolute;
+	top: 30px;
+	left: 40px;
+	font-size: 9pt;
+	display: block;
+	height: 100px;
+	width: 200px;
+	background-color: transparent;
+	*border: 1px solid #666;
+}
+
+s {
+	position: absolute;
+	top: -20px;
+	*top: -22px;
+	left: 20px;
+	display: block;
+	height: 0;
+	width: 0;
+	font-size: 0;
+	line-height: 0;
+	border-color: transparent transparent #666 transparent;
+	border-style: dashed dashed solid dashed;
+	border-width: 10px;
+}
+
+i {
+	position: absolute;
+	top: -9px;
+	*top: -9px;
+	left: -10px;
+	display: block;
+	height: 0;
+	width: 0;
+	font-size: 0;
+	line-height: 0;
+	border-color: transparent transparent #fff transparent;
+	border-style: dashed dashed solid dashed;
+	border-width: 10px;
+}
+
+.content {
+	border: 1px solid #666;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	position: absolute;
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	padding: 5px;
+	*top: -2px;
+	*border-top: 1px solid #666;
+	*border-top: 1px solid #666;
+	*border-left: none;
+	*border-right: none;
+	*height: 102px;
+	box-shadow: 3px 3px 4px #999;
+	-moz-box-shadow: 3px 3px 4px #999;
+	-webkit-box-shadow: 3px 3px 4px #999;
+   /* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999');
+  /* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')";
+}
+  
+   .out-div {   
+        color: #FFFFFF;   
+        font-size: 16px;   
+        line-height: 40px;   
+        display: inline-block;   
+        height: 40px;   
+        width: 200px;   
+        text-align: center;   
+        border-radius: 5px;   
+        margin-left: 32px;   
+        vertical-align: top;   
+        background-color: maroon;   
+    }   
+    .arrow {   
+        width: 0px;   
+        height: 0px;   
+        border-top: 10px solid transparent;   
+        border-right: 10px solid;   
+        border-bottom: 10px solid transparent;   
+        position: absolute;   
+        margin-left: -10px;   
+        margin-top: 10px;   
+        border-right-color: maroon;   
+    }   
+	
+	#rl{margin-top:20px;}
+	#rl a{ 
+		position:relative; 
+		display:inline-block;*display:inline;zoom:1; 
+		border:1px solid #d4d4d4;border-radius:3px; 
+		background-color:#fafafa;color:#333; 
+		padding:6px 8px 5px;margin-left:8px; 
+		text-decoration:none;outline:none; 
+		font-size:11px;font-weight:bold; 
+	} 
+	/*上下左右公有样式*/ 
+	.rl-l:after,.rl-r:after,.rl-t:after,.rl-b:after{ 
+		display:block;width:0;height:0;content:"";position:absolute; 
+		border:4px solid transparent; 
+	} 
+	.rl-l:before,.rl-r:before,.rl-t:before,.rl-b:before{ 
+		display:block;width:0;height:0;content:"";position:absolute; 
+		border:5px solid transparent; 
+	} 
+	/*左*/ 
+	.rl-l:before,.rl-l:after{right:100%;top:50%;} 
+	.rl-l:before{border-right-color:#d4d4d4;margin-top:-5px;} 
+	.rl-l:after{border-right-color:#fafafa;margin-top:-4px;} 
+	/*右*/ 
+	.rl-r:before,.rl-r:after{left:100%;top:50%;} 
+	.rl-r:before{border-left-color:#d4d4d4;margin-top:-5px;} 
+	.rl-r:after{border-left-color:#fafafa;margin-top:-4px;} 
+	/*上*/ 
+	.rl-t:before,.rl-t:after{bottom:100%;left:50%;} 
+	.rl-t:before{border-bottom-color:#d4d4d4;margin-left:-5px;} 
+	.rl-t:after{border-bottom-color:#fafafa;margin-left:-4px;} 
+	/*下*/ 
+	.rl-b:before,.rl-b:after{top:100%;left:50%;} 
+	.rl-b:before{border-top-color:#d4d4d4;margin-left:-5px;} 
+	.rl-b:after{border-top-color:#fafafa;margin-left:-4px;} 
+ </style>
+ </head>
+ <body>
+ <div class="container">
+   <div class="content">
+   hello world!
+  </div>
+  <s>
+    <i></i>
+  </s>
+  
+ </div>
+<div style=" width:0;height:0;border:7px solid;border-color:transparent transparent blue transparent;margin-top:200px;">
+
+</div>
+
+	<div class="out-div">   
+        <div class="arrow" ></div>   
+        <span>这是一个提示框</span>   
+    </div>  
+	<div id="rl"> 
+        <a href="#" class="rl-l">1</a> 
+        <a href="#" class="rl-r">2</a> 
+        <a href="#" class="rl-t">3</a> 
+        <a href="#" class="rl-b">4</a> 
+    </div> 
+ </body>
+ </html>

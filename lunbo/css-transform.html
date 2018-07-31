@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+    #btn{
+        border: none;
+        width: 100px;
+        height: 40px;
+        border-radius: 5px;
+        background: #248cfc;
+        margin-bottom: 50px;
+        outline: none;
+    }
+
+    .contain{
+        width: 500px;
+        height: 150px;
+        position: relative;
+        border: 1px solid #2c2c2c;
+        overflow: hidden;
+    }
+
+    #div2
+    {
+        width: 2500px;
+        height: 150px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translate(-500px,0px);
+        transition-duration: 500ms;
+    }
+
+    .item{
+        width: 500px;
+        height: 150px;
+        float: left;
+        line-height: 150px;
+        text-align: center;
+        background: #00aba9;
+    }
+	.item img{
+		width:100%;
+		height:100%;
+	}
+</style>
+</head>
+<body>
+    <div style="width: 800px;margin: 50px auto  50px;">
+        <button id="btn">transform</button>
+        ​<div class="contain">
+            <div id="div2">
+                <div class="item"><img src='./img/26f4c054583e4c6baa8b8bba565d5ff8.jpg'/></div>			
+                <div class="item"><img src='./img/6eee3ce354254b6789742b5c98275e26.jpg'/></div>
+                <div class="item"><img src='./img/8c9eddcbec854053a7f6fe1d84c406f7.jpg'/></div>
+                <div class="item"><img src='./img/8d88c58abb3f466b82c7069015708f07.jpg'/></div>
+                <div class="item"><img src='./img/26f4c054583e4c6baa8b8bba565d5ff8.jpg'/></div>
+				<div class="item"><img src='./img/6eee3ce354254b6789742b5c98275e26.jpg'/></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var btn = document.getElementById('btn');
+        var div = document.getElementById('div2');
+        var wid = -500;
+        var size = document.getElementsByClassName('item').length;
+        var index = 1;
+        var timer;
+		
+		var startX;
+		var startY;
+		var moveSwitch = false;
+		var currentLeft;
+		var currentTop;
+		
+        btn.onclick =function () {
+
+        };
+		
+		div.addEventListener('touchstart',touchstart, false);
+		div.addEventListener('touchmove',touchmove,false);
+		div.addEventListener('touchend',ontouchend,false);
+		function touchstart(event){
+			var event = event || window.event;
+			moveSwitch = true;
+			startX = event.touches[0].clientX;
+			console.log('touchstart=' + event.touches[0].clientX );
+		}
+		
+		
+		function touchmove(e){
+			var event = e||window;
+			if(!moveSwitch) return;
+			window.clearInterval(timer);
+			currentLeft = event.touches[0].clientX;
+			var curdis = currentLeft - startX;
+			console.log('touchmove=' + (wid * index + curdis));
+			div.style.transform="translate(" + (wid * index + curdis) +"px,0px)";
+
+		}
+		
+		function ontouchend(e){
+			e=e||window.event;
+			moveSwitch =false;
+
+			if(Math.abs(startX - currentLeft)> 150){
+
+				index++;
+				div.style.transform="translate(" + (wid * index) +"px,0px)";
+
+				if(index == size - 1){
+                    console.log('index=' + index);
+                    setTimeout(function () {
+                        div.style.transitionDuration='0ms';
+                        div.style.webkitTransitionDuration='0ms';
+                        index = 1;
+                        div.style.transform="translate(" + wid * index +"px,0px)";
+                    },500);
+
+                }
+				
+			} 
+			else{
+				div.style.transform="translate(" + wid * index +"px,0px)";
+			}
+			timerstart();
+		}
+		
+		function timerstart(){
+			timer = setInterval(function () {
+                index++;
+                div.style.transitionDuration='500ms';
+                div.style.webkitTransitionDuration='500ms';
+                div.style.transform="translate(" + wid * index +"px,0px)";
+
+                if(index == size - 1){
+                    console.log('index=' + index);
+                    setTimeout(function () {
+                        div.style.transitionDuration='0ms';
+                        div.style.webkitTransitionDuration='0ms';
+                        index = 1;
+                        div.style.transform="translate(" + wid * index +"px,0px)";
+                    },500);
+
+                }
+            },2000)		
+		}
+		
+		
+        window.onload = function () {
+            timerstart();
+        }
+    </script>
+</body>
+</html>
