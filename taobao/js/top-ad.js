@@ -70,13 +70,13 @@ function funAds() {
     timer = setInterval(move,2000);
 }
 	//移动端触屏事件
-    function ontouchstart(event){
+    function touchstart(event){
 		var event = event || window.event;
 		moveSwitch = true;
 		startX = event.touches[0].clientX;
     }
     //
-    function ontouchmove(event) {
+    function touchmove(event) {
 		var event = e||window;
 		if(!moveSwitch) return;
 		window.clearInterval(timer);
