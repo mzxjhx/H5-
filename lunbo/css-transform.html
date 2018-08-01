@@ -3,16 +3,6 @@
 <head>
 <style>
 
-    #btn{
-        border: none;
-        width: 100px;
-        height: 40px;
-        border-radius: 5px;
-        background: #248cfc;
-        margin-bottom: 50px;
-        outline: none;
-    }
-
     .contain{
         width: 500px;
         height: 150px;
@@ -21,9 +11,9 @@
         overflow: hidden;
     }
 
-    #div2
+    #imgBox
     {
-        width: 2500px;
+        width: 3000px;
         height: 150px;
         position: absolute;
         left: 0;
@@ -48,9 +38,9 @@
 </head>
 <body>
     <div style="width: 800px;margin: 50px auto  50px;">
-        <button id="btn">transform</button>
+		<h3> Js+css3 swiper</h3>
         ​<div class="contain">
-            <div id="div2">
+            <div id="imgBox">
                 <div class="item"><img src='./img/26f4c054583e4c6baa8b8bba565d5ff8.jpg'/></div>			
                 <div class="item"><img src='./img/6eee3ce354254b6789742b5c98275e26.jpg'/></div>
                 <div class="item"><img src='./img/8c9eddcbec854053a7f6fe1d84c406f7.jpg'/></div>
@@ -62,7 +52,7 @@
     </div>
     <script>
         var btn = document.getElementById('btn');
-        var div = document.getElementById('div2');
+        var div = document.getElementById('imgBox');
         var wid = -500;
         var size = document.getElementsByClassName('item').length;
         var index = 1;
@@ -73,7 +63,10 @@
 		var moveSwitch = false;
 		var currentLeft;
 		var currentTop;
-		
+		var delay=500;
+		var ads=[
+			{},{},{},{}
+		];
         btn.onclick =function () {
 
         };
@@ -85,7 +78,7 @@
 			var event = event || window.event;
 			moveSwitch = true;
 			startX = event.touches[0].clientX;
-			console.log('touchstart=' + event.touches[0].clientX );
+
 		}
 		
 		
@@ -95,58 +88,105 @@
 			window.clearInterval(timer);
 			currentLeft = event.touches[0].clientX;
 			var curdis = currentLeft - startX;
-			console.log('touchmove=' + (wid * index + curdis));
-			div.style.transform="translate(" + (wid * index + curdis) +"px,0px)";
+
+			document.getElementById('imgBox').style.transform="translate(" + (wid * index + curdis) +"px,0px)";
+			document.getElementById('imgBox').style.webkitTransform="translate(" + (wid * index + curdis) +"px,0px)";
 
 		}
 		
 		function ontouchend(e){
 			e=e||window.event;
-			moveSwitch =false;
+                moveSwitch =false;
+                let div=document.getElementById('imgBox');
+                //if(Math.abs(startX - currentLeft)> 150){
+                if(startX - currentLeft > 150){
+                    //向左划
+                    index++;
+                    div.style.transform="translate(" + (wid * index) +"px,0px)";
+                    div.style.transform="translate(" + (wid * index) +"px,0px)";
+                    //setPoints(index < ads.length? index:ads.length);
 
-			if(Math.abs(startX - currentLeft)> 150){
+                    if(index == size - 1){
 
-				index++;
-				div.style.transform="translate(" + (wid * index) +"px,0px)";
+                        setTimeout(function () {
+                            div.style.transitionDuration='0ms';
+                            div.style.webkitTransitionDuration='0ms';
+                            index = 1;
+                            div.style.transform="translate(" + wid * index +"px,0px)";
+                            div.style.webkitTransform="translate(" + wid * index +"px,0px)";
 
-				if(index == size - 1){
-                    console.log('index=' + index);
-                    setTimeout(function () {
-                        div.style.transitionDuration='0ms';
-                        div.style.webkitTransitionDuration='0ms';
-                        index = 1;
-                        div.style.transform="translate(" + wid * index +"px,0px)";
-                    },500);
+                            //setPoints(index);
 
+                        },delay);
+                    }
+                }else if(startX - currentLeft < -150){
+                    //向右划
+                    index--;
+
+                    div.style.transform="translate(" + (wid * index) +"px,0px)";
+
+                    //setPoints(index < 1? ads.length:index);
+
+                    if(index == 0){
+
+                        setTimeout(function () {
+                            div.style.transitionDuration='0ms';
+                            div.style.webkitTransitionDuration='0ms';
+                            index = ads.length ;
+                            div.style.transform="translate(" + wid * index +"px,0px)";
+                            div.style.webkitTransform="translate(" + wid * index +"px,0px)";
+                            //setPoints(index);
+
+                        },delay);
+                    }
                 }
-				
-			} 
-			else{
-				div.style.transform="translate(" + wid * index +"px,0px)";
-			}
-			timerstart();
+                else{
+                    div.style.transform="translate(" + wid * index +"px,0px)";
+                }
+                timerstart();
 		}
 		
 		function timerstart(){
 			timer = setInterval(function () {
-                index++;
-                div.style.transitionDuration='500ms';
-                div.style.webkitTransitionDuration='500ms';
-                div.style.transform="translate(" + wid * index +"px,0px)";
+				let div=document.getElementById('imgBox');
+				index++;
+				div.style.transitionDuration=delay + 'ms';
+				div.style.webkitTransitionDuration=delay+ 'ms';
+				div.style.transform="translate(" + wid * index +"px)";
+				div.style.webkitTransform='translate('+wid * index +'px,0px)';
+				//setPoints(index < ads.length? index:ads.length);
+				//最后一张动画开始时，延时将imgBox置第2张图片位置
+				if(index == size - 1){
 
-                if(index == size - 1){
-                    console.log('index=' + index);
-                    setTimeout(function () {
-                        div.style.transitionDuration='0ms';
-                        div.style.webkitTransitionDuration='0ms';
-                        index = 1;
-                        div.style.transform="translate(" + wid * index +"px,0px)";
-                    },500);
+					setTimeout(function () {
+						div.style.transitionDuration='0ms';
+						div.style.webkitTransitionDuration='0ms';
+						index = 1;
+						div.style.transform="translate(" + wid * index +"px,0px)";
+						div.style.webkitTransform="translate(" + wid * index +"px,0px)";
+						//setPoints(index );
+					},delay);
 
-                }
-            },2000)		
+				}
+			},2000)
 		}
-		
+		function setPoints(x) {
+
+			var item = document.getElementById('pointer_' + (x ));
+			item.className='pointSelectOn';
+			siblings(item).forEach(function(value,index,array){
+				value.className='pointSelectoff';
+			});
+
+		}
+		function siblings(elm) {
+			var a = [];
+			var p = elm.parentNode.children;
+			for(var i =0,len= p.length;i<len;i++) {
+				if(p[i] !== elm) a.push(p[i]);
+			}
+			return a;
+		}
 		
         window.onload = function () {
             timerstart();
