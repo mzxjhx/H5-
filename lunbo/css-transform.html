@@ -51,7 +51,7 @@
         </div>
     </div>
     <script>
-        var btn = document.getElementById('btn');
+
         var div = document.getElementById('imgBox');
         var wid = -500;
         var size = document.getElementsByClassName('item').length;
@@ -67,9 +67,6 @@
 		var ads=[
 			{},{},{},{}
 		];
-        btn.onclick =function () {
-
-        };
 		
 		div.addEventListener('touchstart',touchstart, false);
 		div.addEventListener('touchmove',touchmove,false);
@@ -147,6 +144,7 @@
 		}
 		
 		function timerstart(){
+
 			timer = setInterval(function () {
 				let div=document.getElementById('imgBox');
 				index++;
