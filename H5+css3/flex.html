@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>css3-flex</title>
+    <style>
+        body {
+            margin: 20px;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            height: 200px;
+            font-size: 18px;
+            margin: 10px 0 0 0;
+        }
+
+        .flex-right .left {
+            flex: 0 0 100px;
+            background-color: rgb(0, 162, 255);
+        }
+
+        .flex-right .middle {
+            flex: 0 0 100px;
+            background-color: rgb(212, 137, 23);
+        }
+
+        .flex-right .right {
+            flex: 1;
+            background-color: rgb(85, 180, 160);
+            padding: 0 0 0 20px;
+        }
+        
+        .flex-middle .left{
+            flex:0 0 100px;
+            background-color: rgb(0, 162, 255);
+        }
+        .flex-middle .middle{
+            flex: 1;
+            background-color: rgb(212, 137, 23);
+        }
+        .flex-middle .right{
+            flex:0 0 100px;
+            background-color: rgb(85, 180, 160);
+            padding: 0 0 0 20px;
+        }
+        /*第三种，纵向flex布局*/
+        .direction{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 20px 0 0 0;
+        }
+
+        .direction .header{
+            background: red;
+            flex: 0 0 100px;
+        }
+        /*中间部分自适应,且自身flex布局*/
+        .direction .content{
+            display: flex;
+            flex:1;
+        }
+        /*height固定100px*/
+        .direction .content-left{
+            flex: 0 0 100px;
+            background: green;
+        }
+        .direction .content-right{
+            flex: 0 0 100px;
+            background: pink;
+        }
+        .direction .content-middle{
+            flex:1;
+        }
+        .footer{
+            background: yellow;
+            flex: 0 0 100px;
+        }
+
+        .content-intro table.reference,
+        table.tecspec {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 4px;
+            margin-top: 4px;
+        }
+
+        .content-intro table.reference tr:nth-child(2n) {
+            background-color: #FFF;
+        }
+
+        .content-intro table.reference tr:nth-child(2n+1) {
+            background-color: #EFEFEF;
+        }
+
+        .content-intro table.reference th {
+            background-color: #bdbdbd;
+            border: 1px solid #bdbdbd;
+            border-bottom: none;
+            color: #FFF;
+            font-size: 14px;
+            padding: 3px;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        .content-intro table.reference td {
+            border: 1px solid #DDD;
+            padding: 7px 5px;
+            vertical-align: top;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>左中定宽，右侧自适应</p>
+    <div class="container flex-right">
+        <div class="left">qqq</div>
+        <div class="middle">qqq</div>
+        <div class="right">right</div>            
+    </div>
+    <p>左右定宽，中间自适应</p>
+    <div class="container  flex-middle">
+        <div class="left">qqq</div>
+        <div class="middle">qqq</div>
+        <div class="right ">right</div>            
+    </div>
+
+    <div class="direction">
+        <div class="header">Header</div>
+        <div class="content">
+            <div class="content-left">Left</div>
+            <div class="content-middle">Center</div>
+            <div class="content-right">Right</div>
+        </div>
+    <div class="footer">Footer</div>
+
+        <section class="content-intro">
+            <h2>属性值</h2>
+            <table class="reference notranslate">
+                <tr>
+                    <th style="width:22%">值</th>
+                    <th style="width:78%">描述</th>
+                </tr>
+                <tr>
+                    <td>
+                        <em>flex-grow</em>
+                    </td>
+                    <td>一个数字，规定项目将相对于其他灵活的项目进行扩展的量。</td>
+                </tr>
+                <tr>
+                    <td>
+                        <em>flex-shrink</em>
+                    </td>
+                    <td>一个数字，规定项目将相对于其他灵活的项目进行收缩的量。</td>
+                </tr>
+                <tr>
+                    <td>
+                        <em>flex-basis</em>
+                    </td>
+                    <td>项目的长度。合法值："auto"、"inherit" 或一个后跟 "%"、"px"、"em" 或任何其他长度单位的数字。</td>
+                </tr>
+                <tr>
+                    <td>auto</td>
+                    <td>与 1 1 auto 相同。</td>
+                </tr>
+                <tr>
+                    <td>none</td>
+                    <td>与 0 0 auto 相同。</td>
+                </tr>
+                <tr>
+                    <td>initial</td>
+                    <td>设置该属性为它的默认值，即为 0 1 auto。请参阅
+                        <a href="/cssref/css-initial.html">
+                            <em>initial</em>
+                        </a>。</td>
+                </tr>
+                <tr>
+                    <td>inherit</td>
+                    <td>从父元素继承该属性。请参阅
+                        <a href="/cssref/css-inherit.html">
+                            <em>inherit</em>
+                        </a>。</td>
+                </tr>
+            </table>
+        </section>
+        <script>
+            window.onload = function () {
+
+            }
+
+        </script>
+</body>
+
+</html>
