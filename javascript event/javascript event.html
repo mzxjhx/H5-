@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>javascript event</title>
+    <style>
+        .main {
+            width: 1024px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h2>javascript event</h2>
+    </div>
+    <script src="js/Car.js"></script>
+    <script src="js/NBA.js"></script>
+    <script>
+
+        window.onload = function () {
+            eventOne();
+            eventTwo();
+        }
+        function eventOne() {
+            const obj = new Car();
+            obj.AddEvent("run", function (event) {
+                console.log(event);
+            });
+            obj.add([2, 5, 9]);
+        };
+        //测试go事件
+        function eventTwo() {
+            const nba = new NBA("kobe", "laker");
+            function handleMessage(event) {
+                console.log(event.message);
+            }
+            nba.addHandler("go", handleMessage);
+            nba.PlayOff();
+        };
+
+    </script>
+</body>
+
+</html>
