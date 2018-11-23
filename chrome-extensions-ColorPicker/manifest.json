@@ -1,0 +1,48 @@
+{
+
+    "manifest_version": 2,
+    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+    "minimum_chrome_version": "31.0.0.0",
+    "offline_enabled": true,
+
+    // 浏览器右上角图标设置，browser_action、page_action、app必须三选一
+    "browser_action": {
+        "default_icon": {
+            "32": "img/logo.png"
+        },
+        "default_title": "取色器",
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "32": "img/logo.png",
+        "48": "img/logo.png",
+        "128": "img/logo.png"
+    },
+    "incognito": "split",
+    "name": "jscolor取色器",
+    "short_name": "first",
+    "version": "1.0",
+    "description": "取色器",
+    "default_locale": "zh_CN",
+    "background": {
+       "page": "background.html"
+       //"scripts": ["js/background.js"]
+    },
+
+    "permissions": [
+        "notifications",
+        "unlimitedStorage",
+        "tabs",
+        "idle",
+        "management",
+        "webNavigation",
+        "webRequest", "webRequestBlocking",
+        "storage",
+        "contextMenus",
+        "chrome://favicon/",
+        "clipboardWrite",
+        "cookies",
+        "<all_urls>"
+    ],
+    "optional_permissions" : [ "contentSettings", "downloads" ]
+}

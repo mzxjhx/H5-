@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jscolor</title>
+</head>
+<style type="text/css">
+	body{
+		text-align:center;
+		width: 300px;
+		height: 200px;
+
+	}
+
+</style>
+
+<body>
+		<script src="jscolor.js"></script>
+
+		<h2>jscolor picker</h2>
+		Color: <input class="jscolor" value="ab2567">
+	
+		<script>
+			function setTextColor(picker) {
+				document.getElementsByTagName('body')[0].style.color = '#' + picker.toString()
+			}
+		</script>
+
+</body>
+</html>
