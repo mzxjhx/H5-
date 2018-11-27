@@ -31,16 +31,18 @@
 >IIFE 函数定义的第一部分中。最后，参数 def （也就是传递进去的函数）被调用，并将
 >window 传入当作 global 参数的值。
 
-* 封装在立即函数中的变量不会被外部函数访问到，从而避免与其它代码相冲突。 
+#### 封装在立即函数中的变量不会被外部函数访问到，从而避免与其它代码相冲突。 
 
-函数声明
+***
+
+* 函数声明
 ```javascript
     function funDeclaration(){
         console.log('this is fun Declaration')
     }
 ```
 
-函数表达式
+* 函数表达式
 ```javascript
     var funExpression = function (){
         console.log('this is fun Expression');
