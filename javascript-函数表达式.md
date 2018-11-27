@@ -33,6 +33,54 @@
 
 * 封装在立即函数中的变量不会被外部函数访问到，从而避免与其它代码相冲突。 
 
+函数声明
+```javascript
+    function funDeclaration(){
+        console.log('this is fun Declaration')
+    }
+```
+
+函数表达式
+```javascript
+    var funExpression = function (){
+        console.log('this is fun Expression');
+    }
+```
+Javascript 中函数声明和函数表达式是存在区别的，函数声明在JS解析时进行函数提升，因此在同一个作用域内，不管函数声明在哪里定义，该函数都可以进行调用。而函数表达式的值是在JS运行时确定，并且在表达式赋值完成后，该函数才能调用。
+
+同理，js引擎会在解释 JavaScript 代码之前首先对其进行编译。编译阶段中的一部分工作就是找到所有的变量和函数的声明，使之在任何代码被执行前首先被处理，这个过程叫做提升。函数会首先被 提升，其次是变量。而变量的表达式和函数表达式则在运行时执行。
+```javascript
+    a = 2;
+    bar();
+    function bar(){
+        return a;
+    }
+    var a ;
+```
+将变量a的声明放在最下面，但程序执行依然会输出2。即变量声明提升到代码最上面，然后执行a=2。
+
+再举例
+```javascript
+    foo(); // 1
+    var foo;
+    function foo() {
+        console.log( 1 );
+    }
+    foo = function() {
+        console.log( 2 );
+    };
+
+    js引擎解析后
+    function foo() {
+        console.log( 1 );
+    }
+    foo(); // 1
+    foo = function() {
+        console.log( 2 );
+    };
+```
+后者var foo是重复的声明被忽略，覆盖。实际开发中应避免混乱的代码。
+
 ***
 
 * Javascript数组去重 array.reduce方法
@@ -50,4 +98,3 @@ function() {
       console.log(result);
     }
 ```
-
