@@ -1,4 +1,6 @@
 
+### 作用域和闭包
+
 * 立即执行函数表达式
 
 ```javascript
@@ -29,28 +31,29 @@
 ```
 >函数表达式 def 定义在片段的第二部分，然后当作参数（这个参数也叫作 def ）被传递进
 >IIFE 函数定义的第一部分中。最后，参数 def （也就是传递进去的函数）被调用，并将
->window 传入当作 global 参数的值。
+>window 传入当作 global 参数的值。封装在立即函数中的变量不会被外部函数访问到，从而避免与其它代码相冲突。 
 
-#### 封装在立即函数中的变量不会被外部函数访问到，从而避免与其它代码相冲突。 
+***   
+<br>
 
-***
+* 函数声明和函数表达式
 
-* 函数声明
 ```javascript
+    //函数声明
     function funDeclaration(){
         console.log('this is fun Declaration')
     }
 ```
 
-* 函数表达式
 ```javascript
+    //函数表达式
     var funExpression = function (){
         console.log('this is fun Expression');
     }
 ```
-Javascript 中函数声明和函数表达式是存在区别的，函数声明在JS解析时进行函数提升，因此在同一个作用域内，不管函数声明在哪里定义，该函数都可以进行调用。而函数表达式的值是在JS运行时确定，并且在表达式赋值完成后，该函数才能调用。
+>Javascript 中函数声明和函数表达式是存在区别的，函数声明在JS解析时进行函数提升，因此在同一个作用域内，不管函数声明在哪里定义，该函数都可以进行调用。而函数表达式的值是在JS运行时确定，并且在表达式赋值完成后，该函数才能调用。
 
-同理，js引擎会在解释 JavaScript 代码之前首先对其进行编译。编译阶段中的一部分工作就是找到所有的变量和函数的声明，使之在任何代码被执行前首先被处理，这个过程叫做提升。函数会首先被 提升，其次是变量。而变量的表达式和函数表达式则在运行时执行。
+>同理，js引擎会在解释 JavaScript 代码之前首先对其进行编译。编译阶段中的一部分工作就是找到所有的变量和函数的声明，使之在任何代码被执行前首先被处理，这个过程叫做提升。函数会首先被 提升，其次是变量。而变量的表达式和函数表达式则在运行时执行。
 ```javascript
     a = 2;
     bar();
@@ -59,10 +62,11 @@ Javascript 中函数声明和函数表达式是存在区别的，函数声明在
     }
     var a ;
 ```
-将变量a的声明放在最下面，但程序执行依然会输出2。即变量声明提升到代码最上面，然后执行a=2。
+>将变量a的声明放在最下面，但程序执行依然会输出2。即变量声明提升到代码最上面，然后执行a=2。
 
-再举例
+
 ```javascript
+    //再举例
     foo(); // 1
     var foo;
     function foo() {
@@ -81,9 +85,70 @@ Javascript 中函数声明和函数表达式是存在区别的，函数声明在
         console.log( 2 );
     };
 ```
-后者var foo是重复的声明被忽略，覆盖。实际开发中应避免混乱的代码。
+>后者var foo是重复的声明被忽略，覆盖。实际开发中应避免混乱的代码。
 
-***
+***   
+<br>
+* 作用域，this，call
+```javascript
+    function fun(num) {
+        console.log("fun: " + num);
+        // 记录 foo 被调用的次数
+        this.count++;
+    }
+    fun.count = 0;
+    var i;
+    for (i = 0; i < 10; i++) {
+        if (i > 5) {
+            fun(i);
+        }
+    }
+    // foo: 6
+    // foo: 7
+    // foo: 8
+    // foo: 9
+    // foo 被调用了多少次？
+    console.log(fun.count); // 0
+```
+>运行结果，最后输出count=0,非程序预期的4。fun函数里打印出this，实际指向的是window，此时相当于创建了一个全局的变量count，最后调用fun.count时，它的值还是定义时的0。
+
+
+###### 解决方法一是强制this指向fun
+```javascript
+    function fun(num) {
+        console.log("fun: " + num);
+        // 记录 foo 被调用的次数
+        this.count++;
+    }
+    fun.count = 0;
+    var i;
+    for (i = 0; i < 10; i++) {
+        if (i > 5) {
+            fun.call(fun, i);
+        }
+    }
+    ***以下省略
+```
+
+###### 解决方法二是fun标识符代替this引用函数对象
+```javascript
+    function fun(num) {
+        console.log("fun: " + num);
+        // 记录 foo 被调用的次数
+        fun.count++;
+    }
+    fun.count = 0;
+    var i;
+    for (i = 0; i < 10; i++) {
+        if (i > 5) {
+            fun.call(fun, i);
+        }
+    }
+    ***以下省略
+```
+
+***   
+<br>
 
 * Javascript数组去重 array.reduce方法
   
