@@ -89,6 +89,7 @@
 
 ***   
 <br>
+
 * 作用域，this，call
 ```javascript
     function fun(num) {
@@ -113,7 +114,7 @@
 >运行结果，最后输出count=0,非程序预期的4。fun函数里打印出this，实际指向的是window，此时相当于创建了一个全局的变量count，最后调用fun.count时，它的值还是定义时的0。
 
 
-###### 解决方法一是强制this指向fun
+##### 解决方法一是强制this指向fun
 ```javascript
     function fun(num) {
         console.log("fun: " + num);
@@ -130,7 +131,7 @@
     ***以下省略
 ```
 
-###### 解决方法二是fun标识符代替this引用函数对象
+##### 解决方法二是fun标识符代替this引用函数对象
 ```javascript
     function fun(num) {
         console.log("fun: " + num);
