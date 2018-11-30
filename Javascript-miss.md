@@ -76,7 +76,7 @@
         console.log( 2 );
     };
 
-    js引擎解析后
+    //js引擎解析后实际是这样执行的
     function foo() {
         console.log( 1 );
     }
