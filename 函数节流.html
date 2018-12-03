@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>函数节流</title>
+    <style>
+        html,
+        body {
+            height: 500%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        window.onload = function () {
+            function throttle(fn, delay) {
+                // 记录上一次函数触发的时间
+                var lastTime = 0;
+                return function () {
+                    // 记录当前函数触发的时间
+                    var nowTime = Date.now();
+                    if (nowTime - lastTime > delay) {
+                        // 修正this指向问题
+                        fn.call(this);
+                        // 同步时间
+                        lastTime = nowTime;
+                    }
+                }
+            }
+            document.onscroll = throttle(function () { console.log('scroll事件被触发了' + Date.now()) }, 500)
+        }
+
+    </script>
+</body>
+
+</html>

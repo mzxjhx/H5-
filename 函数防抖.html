@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>函数防抖</title>
+    <style>
+        body {
+            width: 960px;
+            height: 500px;
+            margin: 10px auto;
+        }
+        #btn{
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: #1f8be4;
+            color: #fff;
+            border: 1px solid #1f8be4;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="btn">防抖处理,最后一次点击生效</div>
+    <ul id="ul-add">
+
+    </ul>
+
+    <script type="text/javascript">
+        //
+        function debounce(fn, delay) {
+            // 记录上一次的延时器
+            var timer = null;
+            return function () {
+                // 清除上一次延时器
+                clearTimeout(timer)
+                timer = setTimeout(function () {
+                    fn.apply(this)
+                }, delay)
+            }
+        }
+        var ull = document.getElementById('ul-add');
+
+        document.getElementById('btn').onclick = debounce(function () {
+            let lii = document.createElement('li');
+            lii.innerHTML="防抖加一"
+            ull.appendChild(lii);
+        }, 1000)
+    </script>
+</body>
+
+</html>
