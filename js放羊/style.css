@@ -1,0 +1,32 @@
+* {
+	padding: 0;
+	margin: 0
+}
+
+html,body {
+	width: 100%;
+	height: 100%
+}
+
+.stage {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: url(./mybg.jpg);
+	background-size: cover;
+	overflow: hidden
+}
+
+.sheep {
+	position: absolute;
+	width: 164px;
+	height: 122px;
+	background-image: url(./sheep.png);
+	background-position: 0 0;
+	cursor: -webkit-grabbing;
+	background-repeat: no-repeat;
+	bottom: 20px;
+	right: -164px
+}
