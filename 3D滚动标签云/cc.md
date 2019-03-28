@@ -1,4 +1,15 @@
+在球体坐标系中， x y z是通过以下三个公式来确定，其中r是半径
+$$ x=rsin \theta cos \phi $$
+$$ y=rsin \theta sin \phi $$
+$$ z=rcos \theta $$
 
+
+
+要实标签的均匀分布就要对θ φ取随机值，网上找的两个公式，原理未搞懂：
+$$ \theta=arccos(\frac{2*i}{length} -1) $$
+$$ \phi=\theta \sqrt{length*\pi}$$
+
+坐标旋转：
 
 $$ l = \frac{\pi}{180} $$
 
