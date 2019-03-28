@@ -40,6 +40,7 @@ window.tagcloud = (function (win, doc) {
         TagCloud._on(self.keep ? win : self.box, 'mousemove', function (ev) {
             var oEvent = win.event || ev;
             var boxPosition = self.box.getBoundingClientRect();
+            //坐标随鼠标移动方向变化
             self.mouseX = (oEvent.clientX - (boxPosition.left + self.box.offsetWidth / 2)) / 5;
             self.mouseY = (oEvent.clientY - (boxPosition.top + self.box.offsetHeight / 2)) / 5;
         });
@@ -135,8 +136,12 @@ window.tagcloud = (function (win, doc) {
         };
         return speedMap[ispeed] || 25;
     };
+    /**
+     * 弧度的计算公式为： 角度*（PI/180）
+     * Math.sin（x）和Math.cos(x)这两个函数中的X 都是指的“弧度”而非“角度” 
+     */
     TagCloud._getSc = function (a, b) {
-        var l = Math.PI / 180;
+        var l = Math.PI / 180;  //角度转成弧度
         return [Math.sin(a * l), Math.cos(a * l), Math.sin(b * l), Math.cos(b * l)];
     };
     TagCloud._on = function (ele, eve, handler, cap) {
@@ -154,6 +159,7 @@ window.tagcloud = (function (win, doc) {
             var self = this,
                 a, b;
             if (!self.active && !self.keep) {
+                //鼠标未放在标签上，此时坐标不变
                 self.mouseX = Math.abs(self.mouseX - self.mouseX0) < 1 ? self.mouseX0 : (self.mouseX + self.mouseX0) / 2;
                 self.mouseY = Math.abs(self.mouseY - self.mouseY0) < 1 ? self.mouseY0 : (self.mouseY + self.mouseY0) / 2;
             }
@@ -166,6 +172,7 @@ window.tagcloud = (function (win, doc) {
             self.lastb = b;
             var sc = TagCloud._getSc(a, b);
             for (var j = 0, len = self.items.length; j < len; j++) {
+                //两次矩阵旋转操作，先绕x轴，再绕y轴。
                 var rx1 = self.items[j].x,
                     ry1 = self.items[j].y * sc[1] + self.items[j].z * (- sc[0]),
                     rz1 = self.items[j].y * sc[0] + self.items[j].z * sc[1];
