@@ -167,3 +167,15 @@ function() {
       console.log(result);
     }
 ```
+
+* js判断变量类型
+```
+    Object.prototype.toString.call([]) 
+    "[object Array]"
+    Object.prototype.toString.call({}) 
+    "[object Object]"
+    Object.prototype.toString.call(232)
+    "[object Number]"
+    Object.prototype.toString.call('')
+    "[object String]"
+```
