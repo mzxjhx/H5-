@@ -16,6 +16,33 @@
             font-size: 18px;
             margin: 10px 0 0 0;
         }
+        /*无宽度自适应*/
+        .flex-adj .adj {
+
+            flex: 1;
+        }
+
+        /*给宽度一侧偏*/
+        .flex-justify{
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+        }
+        .flex-justify .adj{
+            width: 100px;
+        }
+
+        .flex-space{
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: flex-end;
+            justify-content:space-between;
+        }
+        .flex-space .adj{
+            width: 100px;
+        }
+
 
         .flex-right .left {
             flex: 0 0 100px;
@@ -32,50 +59,58 @@
             background-color: rgb(85, 180, 160);
             padding: 0 0 0 20px;
         }
-        
-        .flex-middle .left{
-            flex:0 0 100px;
+
+        .flex-middle .left {
+            flex: 0 0 100px;
             background-color: rgb(0, 162, 255);
         }
-        .flex-middle .middle{
+
+        .flex-middle .middle {
             flex: 1;
             background-color: rgb(212, 137, 23);
         }
-        .flex-middle .right{
-            flex:0 0 100px;
+
+        .flex-middle .right {
+            flex: 0 0 100px;
             background-color: rgb(85, 180, 160);
             padding: 0 0 0 20px;
         }
+
         /*第三种，纵向flex布局*/
-        .direction{
+        .direction {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             margin: 20px 0 0 0;
         }
 
-        .direction .header{
+        .direction .header {
             background: red;
             flex: 0 0 100px;
         }
+
         /*中间部分自适应,且自身flex布局*/
-        .direction .content{
+        .direction .content {
             display: flex;
-            flex:1;
+            flex: 1;
         }
+
         /*height固定100px*/
-        .direction .content-left{
+        .direction .content-left {
             flex: 0 0 100px;
             background: green;
         }
-        .direction .content-right{
+
+        .direction .content-right {
             flex: 0 0 100px;
             background: pink;
         }
-        .direction .content-middle{
-            flex:1;
+
+        .direction .content-middle {
+            flex: 1;
         }
-        .footer{
+
+        .footer {
             background: yellow;
             flex: 0 0 100px;
         }
@@ -117,17 +152,44 @@
 </head>
 
 <body>
+    <p>自适应 盒子display:flex 每项flex:1</p>
+    <div class="container flex-adj">
+        <div class="adj" style="background:#aaff22">1111</div>
+        <div class="adj" style="background:#2243ff">0000</div>
+        <div class="adj" style="background:#22ffc8">7777</div>
+        <div class="adj" style="background:#d42752">5555</div>
+        <div class="adj" style="background:#ffb222">6666</div>
+    </div>
+
+    <p>向一侧偏 盒子display:flex 有宽度 </p>
+    <div class="container flex-justify">
+        <div class="adj" style="background:#aaff22">1111</div>
+        <div class="adj" style="background:#2243ff">0000</div>
+        <div class="adj" style="background:#22ffc8">7777</div>
+        <div class="adj" style="background:#d42752">5555</div>
+        <div class="adj" style="background:#ffb222">6666</div>
+    </div>
+
+    <p>向一侧偏 盒子display:flex 有宽度 justify-content间隔</p>
+    <div class="container flex-space">
+        <div class="adj" style="background:#aaff22">1111</div>
+        <div class="adj" style="background:#2243ff">0000</div>
+        <div class="adj" style="background:#22ffc8">7777</div>
+        <div class="adj" style="background:#d42752">5555</div>
+        <div class="adj" style="background:#ffb222">6666</div>
+    </div>
+
     <p>左中定宽，右侧自适应</p>
     <div class="container flex-right">
         <div class="left">qqq</div>
         <div class="middle">qqq</div>
-        <div class="right">right</div>            
+        <div class="right">right</div>
     </div>
     <p>左右定宽，中间自适应</p>
     <div class="container  flex-middle">
         <div class="left">qqq</div>
         <div class="middle">qqq</div>
-        <div class="right ">right</div>            
+        <div class="right ">right</div>
     </div>
 
     <div class="direction">
@@ -137,10 +199,55 @@
             <div class="content-middle">Center</div>
             <div class="content-right">Right</div>
         </div>
-    <div class="footer">Footer</div>
+        <div class="footer">Footer</div>
 
         <section class="content-intro">
-            <h2>属性值</h2>
+            <h2>弹性盒子常用属性值</h2>
+            <table class="reference notranslate">
+                <tr>
+                    <th style="width:22%">值</th>
+                    <th style="width:78%">描述</th>
+                </tr>
+                <tr>
+                    <td>
+                        <em>display</em>
+                    </td>
+                    <td>指定 HTML 元素盒子类型。</td>
+                </tr>
+                <tr>
+                    <td>
+                        <em>flex-direction</em>
+                    </td>
+                    <td>弹性方向： row | row-reverse | column | column-reverse</td>
+                </tr>
+                <tr>
+                    <td>
+                        <em>justify-content</em>
+                    </td>
+                    <td>主轴（横轴）方向上的对齐方式：flex-start|flex-end|center|space-between|space-around|initial|inherit</td>
+                </tr>
+                <tr>
+                    <td>align-items</td>
+                    <td>设置弹性盒子元素在侧轴（纵轴）方向上的对齐方式。</td>
+                </tr>
+                <tr>
+                    <td>flex-wrap</td>
+                    <td>设置弹性盒子的子元素超出父容器时是否换行：nowrap|wrap|wrap-reverse|initial|inherit; </td>
+                </tr>
+                <tr>
+                    <td>align-content</td>
+                    <td>修改 flex-wrap 属性的行为，类似align-items, 但不是设置子元素对齐，而是设置行对齐</td>
+                </tr>
+                <tr>
+                    <td>flex-flow</td>
+                    <td>flex-direction 和 flex-wrap 的简写</td>
+                </tr>
+            </table>
+        </section>
+
+
+        <section class="content-intro">
+            <h2>flex属性值</h2>
             <table class="reference notranslate">
                 <tr>
                     <th style="width:22%">值</th>
