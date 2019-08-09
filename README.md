@@ -18,3 +18,4 @@
 * [debounce](https://github.com/mzxjhx/H5-Javascript/blob/master/Javascript/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96.html)
 * [作用域和闭包](https://github.com/mzxjhx/H5-Javascript/blob/master/Javascript/Javascript-miss.md)
 * [prototype和继承](https://github.com/mzxjhx/H5-Javascript/blob/master/Javascript/prototype.md)
+* [git优质资源](https://juejin.im/post/5d3edad9f265da03a652f133)
